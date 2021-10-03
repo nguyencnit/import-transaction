@@ -8,8 +8,6 @@ services:
       MYSQL_USER: 'admin'
       MYSQL_PASSWORD: 'admin'
       MYSQL_ROOT_PASSWORD: 'admin'
-    volumes:
-        - ./:/docker-entrypoint-initdb.d
     ports:
       - '3306:3306'
     expose:

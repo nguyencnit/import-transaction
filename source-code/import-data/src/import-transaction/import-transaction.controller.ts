@@ -25,15 +25,11 @@ export class ImportTransactionController {
     async uploadFile(@UploadedFile() file: Express.Multer.File) {
         // this.rabbitMQService.send('rabbit-mq-producer', {filename: file.filename});
         const fileExtName = extname(file.originalname);
-        console.log(fileExtName);
         if (fileExtName ==='.csv') {
             return this.importTransactionService.readCsvFile(file.filename);
         } else
         {
             return this.importTransactionService.readExcelFile(file.filename);
         }
-        // return {
-        //     file: file.filename,
-        // };
     }
 }

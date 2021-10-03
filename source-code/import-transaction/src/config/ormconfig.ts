@@ -2,7 +2,6 @@ import {ConnectionOptions} from 'typeorm';
 import {ConfigService} from '../config/config.service';
 
 const configService = new ConfigService();
-
 const configPromise = new Promise<ConnectionOptions>(async resolve => {
     const config: ConnectionOptions = {
         type: configService.get('DB_TYPE') || '',

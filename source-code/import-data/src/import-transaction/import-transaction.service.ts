@@ -76,17 +76,15 @@ export class ImportTransactionService {
         const response = new TranrsactionRo();
         let rowIndex = 0;
         const sheet = file.SheetNames;
-        const temp = utils.sheet_to_json(file.Sheets[file.SheetNames[0]]);
-        console.log(temp.length);
+        const sheetData = utils.sheet_to_json(file.Sheets[file.SheetNames[0]]);
         const promise = new Promise((resolve) => {
-                temp.forEach( async row => {
+            sheetData.forEach( async row => {
                     const rowData = {
                         date: moment(row['date'], "DD/MM/YYYY HH:mm:ss", true).toISOString(),
                         content: row['content'],
                         amount: row['amount'].toString(),
                         type: row['type']
                     }
-                    // console.log(rowData);
                     // create TransactionDto
                     const transaction = plainToClass(
                         TransactionDto,
@@ -104,7 +102,7 @@ export class ImportTransactionService {
 
                         }
                         rowIndex++
-                        if (rowIndex == temp.length-1)
+                        if (rowIndex == sheetData.length-1)
                         {
                             resolve();
                         }
@@ -125,8 +123,7 @@ export class ImportTransactionService {
                 }
             }
         )
-        response.totalRow = temp.length;
+        response.totalRow = sheetData.length;
         return response;
-
     }
 }
