@@ -1,7 +1,7 @@
 import {Controller, Post, UseInterceptors, UploadedFile} from '@nestjs/common';
 import {ImportTransactionService} from './import-transaction.service';
 import {FileInterceptor} from '@nestjs/platform-express';
-import {fileFilter} from 'src/shares/file-upload.utils';
+import {fileFilter} from '../shares/file-upload.utils';
 
 @Controller('import-transaction')
 export class ImportTransactionController {

@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity('transaction_data')
 export class TransactionDataEntity {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn("increment")
     id: number;
 
     @Column({ name: "date", type: "datetime" })

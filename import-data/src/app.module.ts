@@ -4,8 +4,6 @@ import {ImportTransactionModule} from './import-transaction/import-transaction.m
 import {MulterModule} from '@nestjs/platform-express';
 import {
     KeycloakConnectModule,
-    ResourceGuard,
-    RoleGuard,
     AuthGuard,
 } from 'nest-keycloak-connect';
 import { APP_GUARD } from '@nestjs/core';
@@ -14,14 +12,9 @@ import KeycloakConfig = require('./config/keycloak-config');
 
 @Module({
     imports: [
-        // ConfigModule.forRoot({envFilePath:'.env'}),
         RabbitMQModule,
         ImportTransactionModule,
-        MulterModule.register(
-        //     {
-        //     dest: './files'
-        // }
-        ),
+        MulterModule.register(),
         KeycloakConnectModule.registerAsync({useFactory:KeycloakConfig}),
     ],
     controllers: [],
