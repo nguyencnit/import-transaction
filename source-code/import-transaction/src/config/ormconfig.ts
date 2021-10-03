@@ -12,7 +12,7 @@ const configPromise = new Promise<ConnectionOptions>(async resolve => {
         password: configService.get('DB_PASSWORD') || '',
         database: configService.get('DB_NAME'),
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-        synchronize: false,
+        synchronize: true,
         logging: configService.get('DB_LOGGING'),
         timezone: configService.get('DB_TIMEZONE'),
 
