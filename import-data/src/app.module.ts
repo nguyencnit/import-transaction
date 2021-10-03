@@ -17,9 +17,11 @@ import KeycloakConfig = require('./config/keycloak-config');
         // ConfigModule.forRoot({envFilePath:'.env'}),
         RabbitMQModule,
         ImportTransactionModule,
-        MulterModule.register({
-            dest: './files'
-        }),
+        MulterModule.register(
+        //     {
+        //     dest: './files'
+        // }
+        ),
         KeycloakConnectModule.registerAsync({useFactory:KeycloakConfig}),
     ],
     controllers: [],

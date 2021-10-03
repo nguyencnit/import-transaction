@@ -9,6 +9,7 @@ export class TransactionDataController {
 
   @MessagePattern('rabbit-mq-producer')
   create(@Payload() data: CreateTransactionDataDto[], @Ctx() context: RmqContext) {
+
     return this.transactionDataService.create(data, context);
   }
 }

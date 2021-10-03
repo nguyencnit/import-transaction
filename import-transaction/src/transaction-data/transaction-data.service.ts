@@ -1,4 +1,4 @@
-import {Injectable, HttpException, HttpStatus} from '@nestjs/common';
+import {Injectable, HttpException, HttpStatus, Logger} from '@nestjs/common';
 import {CreateTransactionDataDto} from './dto/create-transaction-data.dto';
 import {TransactionDataRepository} from './transaction-data.repository';
 import {TransactionDataEntity} from './entities/transaction-data.entity';
@@ -36,7 +36,6 @@ export class TransactionDataService {
                 .execute();
         } catch (e) {
             await queryRunner.rollbackTransaction();
-            // this.logger.error(e, e.stack);
             channel.nack(orginalMessage);
             throw new HttpException(
                 {
