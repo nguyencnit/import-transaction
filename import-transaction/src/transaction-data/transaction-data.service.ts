@@ -1,4 +1,4 @@
-import {Injectable, HttpException, HttpStatus, Logger} from '@nestjs/common';
+import {Injectable, HttpException, HttpStatus} from '@nestjs/common';
 import {CreateTransactionDataDto} from './dto/create-transaction-data.dto';
 import {TransactionDataRepository} from './transaction-data.repository';
 import {TransactionDataEntity} from './entities/transaction-data.entity';
@@ -7,10 +7,6 @@ import {RmqContext} from "@nestjs/microservices";
 
 @Injectable()
 export class TransactionDataService {
-    constructor(
-        private readonly transactionDataRepository: TransactionDataRepository,
-    ) {
-    }
 
     async create(data: CreateTransactionDataDto[], context: RmqContext) {
         const channel = context.getChannelRef();
@@ -48,7 +44,6 @@ export class TransactionDataService {
             await queryRunner.release();
             channel.ack(orginalMessage);
         }
-
         return 'This action adds a new transactionData';
     }
 }

@@ -17,7 +17,7 @@ const configPromise = new Promise<ConnectionOptions>(async resolve => {
 
         // Run migrations automatically,
         // you can disable this if you prefer running migration manually.
-        migrationsRun: true,
+        migrationsRun: false,
 
         // Allow both start:prod and start:dev to use migrations
         // __dirname is either dist or src folder, meaning either
