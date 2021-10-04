@@ -9,9 +9,6 @@ jest.mock('../rabbit-mq/rabbit-mq.service');
 
 describe('ImportTransactionService', () => {
     let service: ImportTransactionService;
-    let configService: ConfigService;
-    let rabbitMQService: RabbitMQService;
-
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
             imports: [RabbitMQModule],

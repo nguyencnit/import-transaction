@@ -1,4 +1,4 @@
-import { IsDateString, IsNotEmpty, IsNumberString, MaxLength, IsNumber, IsDate } from 'class-validator';
+import { IsDateString, IsNotEmpty, IsNumberString, MaxLength} from 'class-validator';
 export class TransactionDto {
     @IsNotEmpty()
     @IsDateString()
@@ -14,11 +14,4 @@ export class TransactionDto {
 
     @MaxLength(100)
     type: string;
-
-    constructor(date,content,amount,type) {
-        this.date = date;
-        this.content= content;
-        this.amount = amount;
-        this.type = type;
-    }
 }
