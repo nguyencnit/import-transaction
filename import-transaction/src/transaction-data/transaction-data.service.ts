@@ -1,6 +1,5 @@
 import {Injectable, HttpException, HttpStatus} from '@nestjs/common';
 import {CreateTransactionDataDto} from './dto/create-transaction-data.dto';
-import {TransactionDataRepository} from './transaction-data.repository';
 import {TransactionDataEntity} from './entities/transaction-data.entity';
 import {getConnection} from "typeorm";
 import {RmqContext} from "@nestjs/microservices";

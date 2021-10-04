@@ -10,16 +10,12 @@ export interface EnvConfig {
 export class ConfigService {
     private readonly envConfig: EnvConfig;
 
-    constructor(filePath: string = '.env') {
+    constructor(filePath = '.env') {
         if (fs.existsSync(filePath)) {
             this.envConfig = this.validateConfig(parse(fs.readFileSync(filePath)));
         } else {
             this.envConfig = this.validateConfig(process.env);
         }
-    }
-
-    public isProductionEnv() {
-        return this.get('NODE_ENV') === 'production';
     }
 
     public get(key: string): any {
