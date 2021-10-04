@@ -20,6 +20,11 @@
 - Ở thư mục `import-transaction`. Chạy lệnh `npm run start`.
 
 
+## Run test
+
+- Ở thư mục `import-data`. Chạy lệnh `npm test`.
+- Ở thư mục `import-transaction`. Chạy lệnh `npm test`.
+
 ## Tạo tài khoản user trên Keycloak
 
 - [Click để xem file hướng dẫn](Guideline_createuser_keycloak.docx)
